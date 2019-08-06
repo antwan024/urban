@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Urban</title>
+</head>
+
+<body>
+  
+  <div id="word"></div>
+  <div id="word2"></div>
+
+  <div id="lyrics"></div>
+  <div id="output"></div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    
+    var queryUrbanURL = "http://api.urbandictionary.com/v0/define?term=punk";
+
+    
+    $.ajax({
+        url: queryUrbanURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(queryUrbanURL);
+
+        console.log(response);
+
+        $("#word").text(response.list[0].definition);
+
+        for(var i=0; i<5; i++) {
+        
+            var word = $("<div id='def'>");
+            word.text("definition "+ (i+1) + ":    " + response.list[i].definition);
+            $("#word2").append(word);
+
+        }      
+        
+    });
+
+
+
+    var corsURL = "https://cors-anywhere.herokuapp.com/"
+    var queryLyricsURL = corsURL+"https://api.lyrics.ovh/v1/post%20malone/wow.";
+
+
+    $.ajax({
+        url: queryLyricsURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(queryLyricsURL);
+        console.log(response);
+        console.log(response.lyrics);
+
+
+        $("#lyrics").text(response.lyrics);
+        
+    });
+
+
+
+    
+    function get_selection() {
+
+        var txt = '';
+
+        if (window.getSelection) {
+            txt = window.getSelection().toString();
+        } else if (document.selection) {
+            txt = document.selection.createRange().text;
+        };
+
+        document.getElementById("output").innerHTML = txt;
+
+    };
+
+    document.getElementById("word2").onclick = get_selection;
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+    
+
+
+
+  </script>
+</body>
+
+</html>
