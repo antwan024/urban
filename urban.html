@@ -85,22 +85,9 @@
     
     
 //=============================================================
-//
+//function  for the pop-up
 
 
-    // var corsURL = "https://cors-anywhere.herokuapp.com/";
-    // var queryLyricsURL = corsURL+"https://api.lyrics.ovh/v1/post%20malone/wow.";
-    
-    // $.ajax({
-    //     url: queryLyricsURL,
-    //     method: "GET"
-    // }).then(function(response) {
-    //     // console.log(queryLyricsURL);
-    //     // console.log(response);
-    //     // console.log(response.lyrics);
-    //     $("#lyrics").text(response.lyrics);
-        
-    // });
     
     
     function myFunction() {
@@ -110,6 +97,10 @@
 
 
     
+//function  for the selecting of the word.
+
+
+
     function get_selection() {
       
         var txt = '';
@@ -127,16 +118,16 @@
       
         var queryUrbanURL = "https://api.urbandictionary.com/v0/define?term="+txt;
       
-        
+
+
+
+//AJAX call to GET top 5 Urbandictionary.com definitions for selected word.
+
     
         $.ajax({
             url: queryUrbanURL,
             method: "GET"
-        }).then(function(response) {
-            // console.log(queryUrbanURL);
-            // console.log(response);
-            // $("#word").text(response.list[0].definition);
-           
+        }).then(function(response) {           
           
             $("#word").empty();
             
@@ -153,29 +144,18 @@
               
             };   
           
-        //   alert($("#myPopup").text());
-        //   alert($("#word2").text());
-            
-            myFunction();
-
-        
-        
-           
+      
+            myFunction();  
           
           
-         
-          
-          
-          
-        
       });
       
-      
-        
     };
     
     
-    
+//making the divs clickable.
+
+
     document.getElementById("word").onclick = get_selection;
     document.getElementById("word3").onclick = get_selection;
     document.getElementById("lyrics").onclick = get_selection;
