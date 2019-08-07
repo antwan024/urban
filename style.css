@@ -1,20 +1,20 @@
 .popup {
-    position: relative;
+    /* position: relative;
     display: inline-block;
-    cursor: pointer;
+    cursor: pointer; */
   }
   
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
-    width: 500px;
+    width: 700px;
     /* height: 500px; */
     background-color: #555;
     color: #fff;
-    text-align: center;
+    text-align: left;
     border-radius: 6px;
     padding: 8px 0;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     bottom: 1%;
     /* left: 50%; */
